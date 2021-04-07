@@ -2,6 +2,8 @@ name: Spell checking
 on:
   pull_request_target:
   push:
+  issue_comment:
+  pull_request_review_comment:
 
 jobs:
   build:
@@ -20,3 +22,6 @@ jobs:
       with:
         fetch-depth: 5
     - uses: check-spelling/check-spelling@prerelease
+      with:
+        experimental_apply_changes_via_bot: 1
+        debug: 1
