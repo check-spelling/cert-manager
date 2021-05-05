@@ -148,7 +148,7 @@ func WaitForCertificateCondition(client clientset.CertificateInterface, name str
 	var certificate *v1.Certificate
 	err := wait.PollImmediate(500*time.Millisecond, timeout,
 		func() (bool, error) {
-			log.Logf("Waiting for Certificate %v to have contition %v %v", name, condition.Type, condition.Status)
+			log.Logf("Waiting for Certificate %v to have condition %v %v", name, condition.Type, condition.Status)
 			certificate, err := client.Get(context.TODO(), name, metav1.GetOptions{})
 			if nil != err {
 				return false, fmt.Errorf("error getting Certificate %v: %v", name, err)
